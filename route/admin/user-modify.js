@@ -1,0 +1,25 @@
+   const  {User}= require('../../model/user')
+
+module.exports = async(req,res,next) => {
+        //接受客户端传来的参数
+        const {username,email,role,state,password} = req.body
+         //即将要修改的用户Id
+        const id  = req.query.id
+
+        let user = await User.findOne({_id:id})
+        if(password == user.password){
+             await User.updateOne({_id:id},{
+                username :username,
+                email :email,
+                role :role,
+                state :state
+            })
+            //重定向用户列表页面
+            res.redirect('/admin/user')
+        }else{
+            let obj = {path:'/admin/user-edit',message:'密码比对失败，不能修改',id:id}
+            next(JSON.stringify(obj))
+        }
+    
+
+}

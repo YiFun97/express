@@ -1,0 +1,15 @@
+{{extend './common/layout.art'}}
+
+
+{{block 'main'}} 
+<p class="bg-success error" id="err4">{{message}}</p>
+
+{{/block}}
+
+ {{block 'script'}}
+ <script>
+     setTimeout(function(){
+         location.href = '/admin/login'
+     },2000)
+ </script>
+ {{/block}}

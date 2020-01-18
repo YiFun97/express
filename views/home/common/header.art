@@ -1,0 +1,42 @@
+<!-- 头部框架开始 -->
+<div class="header">
+    <div class="w1100">
+        <!-- 网站logo开始 -->
+        <h1 class="logo fl hrlogo">
+            <!-- <a href="default.html"><img src="images/logo.png" alt="黑马程序员"></a>
+                        -->
+                        多人博客 BLOG 
+        </h1>
+        <!-- 网站logo结束 -->
+        <!-- 网站导航开始 -->{{if userInfo}}
+        <div class="usershow fr" style="color: aliceblue;">
+            <span class="user12">
+            <span >  
+                用户名:
+                {{ userInfo && userInfo.username}}
+            </span>
+            <span >  
+                <a  href="/home/logout" style="color: aliceblue;">退出登录</a>
+            </span>
+        </span>
+        </div> 
+            {{else}}
+             {{/if}}
+        <ul class="navigation fl">
+            <li>
+                <a class="active" href="/home/">首页</a>
+            </li>
+            {{if userInfo == null}}
+            <li>
+                <a href="/admin/login">登录</a>
+            </li>
+            {{else}}
+            {{/if}}
+        </ul>
+      
+         
+              
+        <!-- 网站导航结束 -->
+    </div>
+</div>
+<!-- 头部框架结束 -->
